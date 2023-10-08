@@ -70,6 +70,10 @@ const Nav = styled.nav`
   
 const MobileNav = styled.nav`
   display: none;
+
+  & * {
+    cursor: pointer;
+  }
   
   @media ${QUERIES.tabletAndDown} {
     display: flex;
