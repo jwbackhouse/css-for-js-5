@@ -9,12 +9,7 @@ import Icon from '../Icon';
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
-
-  // For our mobile hamburger menu, we'll want to use a button
-  // with an onClick handler, something like this:
-  //
-  // <button onClick={() => setShowMobileMenu(true)}>
-
+  
   return (
     <header>
       <SuperHeader />
@@ -23,19 +18,19 @@ const Header = () => {
           <Logo />
         </Side>
         <Nav>
-          <NavLink href="/sale">Sale</NavLink>
-          <NavLink href="/new">New&nbsp;Releases</NavLink>
-          <NavLink href="/men">Men</NavLink>
-          <NavLink href="/women">Women</NavLink>
-          <NavLink href="/kids">Kids</NavLink>
-          <NavLink href="/collections">Collections</NavLink>
+          <NavLink href="/sale">Saledddd</NavLink>
+          <NavLink href="/new">New&nbsp;Releasesdddddd</NavLink>
+          <NavLink href="/men">Menddddddd</NavLink>
+          <NavLink href="/women">Womendddddd</NavLink>
+          <NavLink href="/kids">Kidsddddddddd</NavLink>
+          <NavLink href="/collections">Collectionsdddddddd</NavLink>
         </Nav>
         <MobileNav>
           <Icon id='shopping-bag' color='black' size='24px' />
           <Icon id='search' color='black' size='24px'/>
           <Icon id='menu' color='black' size='24px' onClick={() => setShowMobileMenu(true)}/>
         </MobileNav>
-        <SideRight />
+        <Side />
       </MainHeader>
 
       <MobileMenu
@@ -52,15 +47,18 @@ const MainHeader = styled.div`
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+  overflow-x: auto;
+  overflow-y: hidden;
 
   @media ${QUERIES.tabletAndDown} {
     border-top: 4px solid ${COLORS.gray[900]};
+    overflow-y: hidden;
   }
 `;
 
 const Nav = styled.nav`
   display: flex;
-  gap: 48px;
+  gap: clamp(8px, 2.5vw, 48px);
   margin: 0px 48px;
 
   @media ${QUERIES.tabletAndDown} {
@@ -70,7 +68,8 @@ const Nav = styled.nav`
   
 const MobileNav = styled.nav`
   display: none;
-
+  flex-grow: 1;
+  
   & * {
     cursor: pointer;
   }
@@ -83,14 +82,8 @@ const MobileNav = styled.nav`
 `;
 
 const Side = styled.div`
-  flex: 1;
+  flex: 0 1 0;
 `;
-
-const SideRight = styled(Side)`
-  @media ${QUERIES.tabletAndDown} {
-    flex-grow: 0
-  }
-`
 
 const NavLink = styled.a`
   font-size: 1.125rem;
