@@ -35,7 +35,7 @@ const Header = () => {
           <Icon id='search' color='black' size='24px'/>
           <Icon id='menu' color='black' size='24px' onClick={() => setShowMobileMenu(true)}/>
         </MobileNav>
-        <Side />
+        <SideRight />
       </MainHeader>
 
       <MobileMenu
@@ -53,7 +53,7 @@ const MainHeader = styled.div`
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
 
-  @media ${QUERIES.mobileAndDown} {
+  @media ${QUERIES.tabletAndDown} {
     border-top: 4px solid ${COLORS.gray[900]};
   }
 `;
@@ -63,7 +63,7 @@ const Nav = styled.nav`
   gap: 48px;
   margin: 0px 48px;
 
-  @media ${QUERIES.mobileAndDown} {
+  @media ${QUERIES.tabletAndDown} {
     display: none;
   }
 `;
@@ -71,10 +71,9 @@ const Nav = styled.nav`
 const MobileNav = styled.nav`
   display: none;
   
-  @media ${QUERIES.mobileAndDown} {
+  @media ${QUERIES.tabletAndDown} {
     display: flex;
     gap: 24px;
-    flex-grow: 999;
     justify-content: flex-end;
   }
 `;
@@ -82,6 +81,12 @@ const MobileNav = styled.nav`
 const Side = styled.div`
   flex: 1;
 `;
+
+const SideRight = styled(Side)`
+  @media ${QUERIES.tabletAndDown} {
+    flex-grow: 0
+  }
+`
 
 const NavLink = styled.a`
   font-size: 1.125rem;
